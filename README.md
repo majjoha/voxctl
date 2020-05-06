@@ -1,5 +1,5 @@
 # 🎧 `voxctl`
-`voxctl` is a command line tool for controlling the [VOX](https://vox.rocks)
+`voxctl` is a command-line tool for controlling the [VOX](https://vox.rocks)
 music player from the terminal.
 
 Under the hood, it works by proxying calls to [VOX](https://vox.rocks) using
@@ -12,7 +12,10 @@ commands from the [VOX](https://vox.rocks) scripting suite.
 * macOS 10.10 or newer.
 
 ## Installation
-TBD.
+```
+brew tap majjoha/voxctl
+brew install voxctl
+```
 
 ## Usage
 ```
