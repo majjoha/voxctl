@@ -47,7 +47,7 @@ const COMMANDS = {
   increaseVolume: _ => vox.increasvolume(),
   decreaseVolume: _ => vox.decreasevolume(),
   togglePlaylist: _ => vox.showhideplaylist(),
-  info: _ => `${JSON.stringify(currentState(), null, 2)}`,
+  info: _ => JSON.stringify(currentState(), null, 2),
   isRunning: _ => vox.running(),
   help: _ => HELP
 }
