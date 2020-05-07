@@ -13,7 +13,7 @@ commands from the [VOX](https://vox.rocks) scripting suite.
 
 ## Installation
 ```
-brew tap majjoha/voxctl
+brew tap majjoha/tap
 brew install voxctl
 ```
 
