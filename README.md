@@ -46,4 +46,4 @@ Commands:
 ```
 
 ## License
-See [LICENSE](https://github.com/majjoha/voxctl/blob/master/LICENSE).
+See [LICENSE](https://github.com/majjoha/voxctl/blob/main/LICENSE).
