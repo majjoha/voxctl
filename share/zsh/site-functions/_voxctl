@@ -1,0 +1,48 @@
+_voxctl_args() {
+  case "${words[1]}" in
+    (playUrl|addUrl)
+      _arguments '*:URL:_urls'
+      ;;
+  esac
+}
+
+_voxctl() {
+  local -a commands
+  commands=(
+    'start:Starts VOX'
+    'quit:Quits VOX'
+    'play:Begins playback'
+    'pause:Pauses playback'
+    'togglePlay:Toggles playback between playing and paused '
+    'next:Skips to the next track in the playlist'
+    'previous:Skips to the previous track in the playlist'
+    'shuffle:Toggles shuffle on or off'
+    'playUrl:Plays the specified URL'
+    'addUrl:Adds the specified URL to the playlist'
+    'rewindForward:Rewinds the current track forward'
+    'rewindForwardFast:Rewinds the current track forward fast'
+    'rewindBackward:Rewinds the current track backward'
+    'rewindBackwardFast:Rewinds the current track backward fast'
+    'increaseVolume:Increases the volume'
+    'decreaseVolume:Decreases the volume'
+    'togglePlaylist:Shows/hides the playlist'
+    'info:Displays information about the current track in JSON'
+    'isRunning:Prints true if VOX is open, otherwise false'
+    'help:Prints help'
+  )
+
+  _arguments -C \
+    '1:cmd:->cmds' \
+    '*::arg:->args'
+
+  case "$state" in
+    (cmds)
+      _describe -t commands 'command' commands
+      ;;
+    (args)
+      _voxctl_args
+      ;;
+  esac
+}
+
+compdef _voxctl voxctl
