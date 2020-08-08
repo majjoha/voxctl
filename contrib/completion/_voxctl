@@ -1,10 +1,4 @@
-_voxctl_args() {
-  case "${words[1]}" in
-    (playUrl|addUrl)
-      _arguments '*:URL:_urls'
-      ;;
-  esac
-}
+#compdef voxctl
 
 _voxctl() {
   local -a commands
@@ -40,9 +34,17 @@ _voxctl() {
       _describe -t commands 'command' commands
       ;;
     (args)
-      _voxctl_args
+      __voxctl_args
       ;;
   esac
 }
 
-compdef _voxctl voxctl
+__voxctl_args() {
+  case "${words[1]}" in
+    (playUrl|addUrl)
+      _arguments '*:URL:_urls'
+      ;;
+  esac
+}
+
+_voxctl "$@"
