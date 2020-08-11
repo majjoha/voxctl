@@ -3,6 +3,7 @@
 _voxctl() {
   _arguments -s -C \
     '(- *)'{-h,--help}'[Prints help]: :->noargs' \
+    '(- *)'{-v,--version}'[Prints version information]: :->noargs' \
     '1: :__voxctl_commands' \
     '*::arg:->args'
 
