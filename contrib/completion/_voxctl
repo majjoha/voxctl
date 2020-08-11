@@ -1,6 +1,24 @@
 #compdef voxctl
 
 _voxctl() {
+  _arguments -s -C \
+    '(- *)'{-h,--help}'[Prints help]: :->noargs' \
+    '1: :__voxctl_commands' \
+    '*::arg:->args'
+
+  case "$state" in
+    (args)
+      case "${line[1]}" in
+        (addUrl|playUrl)
+          _arguments '1:URL:_urls'
+          ;;
+      esac
+      ;;
+  esac
+}
+
+(( $+functions[__voxctl_commands] )) ||
+__voxctl_commands() {
   local -a commands
   commands=(
     'start:Starts VOX'
@@ -24,27 +42,7 @@ _voxctl() {
     'isRunning:Prints true if VOX is open, otherwise false'
     'help:Prints help'
   )
-
-  _arguments -C \
-    '1:cmd:->cmds' \
-    '*::arg:->args'
-
-  case "$state" in
-    (cmds)
-      _describe -t commands 'command' commands
-      ;;
-    (args)
-      __voxctl_args
-      ;;
-  esac
-}
-
-__voxctl_args() {
-  case "${words[1]}" in
-    (playUrl|addUrl)
-      _arguments '*:URL:_urls'
-      ;;
-  esac
+  _describe -t commands 'commands' commands "$@"
 }
 
 _voxctl "$@"
