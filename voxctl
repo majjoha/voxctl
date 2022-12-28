@@ -2,6 +2,8 @@
 const vox = Application("Vox")
 vox.includeStandardAdditions = true
 
+const VERSION = "1.2.0"
+
 const HELP = `CLI for controlling the VOX music player
 
 Usage:
@@ -27,7 +29,8 @@ Commands:
   togglePlaylist      # Shows/hides the playlist
   info                # Displays information about the current track in JSON
   isRunning           # Prints true if VOX is open, otherwise false
-  help                # Prints this information`
+  help                # Prints this information
+  version             # Prints the version of voxctl`
 
 const COMMANDS = {
   start: _ => vox.activate(),
@@ -49,7 +52,8 @@ const COMMANDS = {
   togglePlaylist: _ => vox.showhideplaylist(),
   info: _ => JSON.stringify(currentState(), null, 2),
   isRunning: _ => vox.running(),
-  help: _ => HELP
+  help: _ => HELP,
+  version: _ => VERSION,
 }
 
 const currentState = () => ({

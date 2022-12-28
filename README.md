@@ -43,6 +43,7 @@ Commands:
   info                # Displays information about the current track in JSON
   isRunning           # Prints true if VOX is open, otherwise false
   help                # Prints this information
+  version             # Prints the version of voxctl
 ```
 
 ## License
